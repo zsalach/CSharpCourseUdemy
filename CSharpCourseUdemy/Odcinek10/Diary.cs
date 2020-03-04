@@ -17,20 +17,28 @@ namespace Odcinek10
 
         //stan
         List<double> ratings = new List<double>(); // listy przechowywane są w liście
-        
 
-      
+
+
         //zachowania
- //1. dodajemy oceny do listy.
+//1. dodajemy oceny do listy.
+        /// <summary>
+        /// Pobieramy najwyższą ocenę.
+        /// </summary>
+        /// <returns></returns>
+        /// <param name="rating">nowa ocena</param>
         public void AddRating(double rating)
         {
             ratings.Add(rating);
         }
  // 2. wyliczamy średnią.
+
+        /// <summary>
+        /// Metoda oblicz średnią ocen.
+        /// </summary>
+        /// <returns></returns>
         public double CalculateAverage()
         {
-            // sumowamy przez wszystkie oceny i wyciągamy średnią.
-
             double sum = 0;
             double avg = 0;
             foreach(var rating in ratings)
@@ -46,11 +54,11 @@ namespace Odcinek10
         {
             return ratings.Max();
         }
-        
+
+  
         public double GiveMinReting()
         {
-            return ratings.Min(); 
+            return ratings.Min();
         }
-
     }
 }

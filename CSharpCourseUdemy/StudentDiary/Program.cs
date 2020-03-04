@@ -6,46 +6,19 @@ namespace Odcinek10
     {
         static void Main(string[] args)
         {
+
             Diary diary = new Diary();
-            int iloscOcen = 0;
-            Console.WriteLine("Wprowadzenie 11 kończy wprowadzanie ocen");
-            
-            for (; ; )
-            {
-               
-                Console.WriteLine($"Podaj ocenę z zakresu 1-10.");
-                double rating;
-                bool result = double.TryParse(Console.ReadLine(), out rating);
+            diary.AddRating(5.1);
+            diary.AddRating(5.7);
+            diary.AddRating(5.3);
+            diary.AddRating(5.9);
 
-                if (rating == 11)
-                {
-                    break;
-                }
-                if (result)
-                {
-                    if (rating >= 1 && rating < 11)
-                    {
+            DiaryStatistics stat = diary.ComputeStatistic();
 
-                        diary.AddRating(rating);
-                        iloscOcen++;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"Podana liczba jest poza zakresem ocen.");
-                }
-            }
-            Console.WriteLine($"Masz {iloscOcen} ocen");
-            Console.WriteLine($"średnia twoich ocen to {diary.CalculateAverage()}");
-            Console.WriteLine($"Najwyższa ocena to: {diary.GiveMaxValue()}");
-            Console.WriteLine($"Najniższa ocena to: {diary.GiveMinReting()}");
-            Console.ReadKey();
+            Console.WriteLine($"Średnia wartość: {stat.AverageGrade}");
+            Console.WriteLine($"Maksymalna wartość: {stat.MaxGrade}" );
 
 
-           
-            
-            
         }
-
     }
 }

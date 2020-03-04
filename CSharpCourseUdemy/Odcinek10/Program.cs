@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace Odcinek10
 {
@@ -13,6 +13,10 @@ namespace Odcinek10
 
             Diary diary2 = diary;
             diary2.AddRating(8);
+            diary.AddRating(3);
+
+            List<int> lista = new List<int>();
+           
         }
     }
 }
