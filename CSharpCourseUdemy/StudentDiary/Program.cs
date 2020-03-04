@@ -1,50 +1,51 @@
 ﻿using System;
 
-namespace StudentDiary
+namespace Odcinek10
 {
     class Program
     {
         static void Main(string[] args)
         {
             Diary diary = new Diary();
-           
-/*          diary.AddRating(5);
-            diary.AddRating(8.5f);       
-            diary.AddRating(8.7f);
-            float avg = diary.CalculateAverage();
-            float max = diary.GiveMaxRating();
-            float min = diary.GivrMinRating();
-*/
-
-            for(; ; ) //nieskończona pętla!!!
+            int iloscOcen = 0;
+            Console.WriteLine("Wprowadzenie 11 kończy wprowadzanie ocen");
+            
+            for (; ; )
             {
-                Console.WriteLine("Podaj ocenę z zakresu 1 - 10");
-                float rating; 
-                bool result = float.TryParse(Console.ReadLine(), out rating); 
-                // sprawdza czy wprowadzony znak list liczbą
-                
-                if(rating == 11)    // program jes zakończany po wpisaniu liczby 11
+               
+                Console.WriteLine($"Podaj ocenę z zakresu 1-10.");
+                double rating;
+                bool result = double.TryParse(Console.ReadLine(), out rating);
+
+                if (rating == 11)
                 {
                     break;
                 }
-
-                if(result = true) // jeżeli liczba to
+                if (result)
                 {
-                    if (rating > 0 && rating <=10) // sprawdzamy czy jest z przedziału 1-10
+                    if (rating >= 1 && rating < 11)
                     {
-                        diary.AddRating(rating); // jeżeli z przedziału to dodajemy.
-                    }
-                    else
-                    {
-                        Console.WriteLine("Niepoprawna liczba");
+
+                        diary.AddRating(rating);
+                        iloscOcen++;
                     }
                 }
-            } 
-            // po zakończeniu pętli wyświetla dane.
-            Console.WriteLine($"Srednia twoich ocen to: {diary.CalculateAverage()}");
-            Console.WriteLine("Najwyższa oczena to: {0}",diary.GiveMaxRating());
-            Console.WriteLine($"Najniższa ocena to: {diary.GivrMinRating()}");
-            Console.WriteLine();
+                else
+                {
+                    Console.WriteLine($"Podana liczba jest poza zakresem ocen.");
+                }
+            }
+            Console.WriteLine($"Masz {iloscOcen} ocen");
+            Console.WriteLine($"średnia twoich ocen to {diary.CalculateAverage()}");
+            Console.WriteLine($"Najwyższa ocena to: {diary.GiveMaxValue()}");
+            Console.WriteLine($"Najniższa ocena to: {diary.GiveMinReting()}");
+            Console.ReadKey();
+
+
+           
+            
+            
         }
+
     }
 }
